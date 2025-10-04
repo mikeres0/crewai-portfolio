@@ -1,0 +1,427 @@
+design_concept_task:
+  description: >
+    Create a comprehensive, visually striking design concept for a C# developer portfolio website
+    that will impress technical recruiters, hiring managers, and fellow developers. The design must
+    balance professional credibility with creative boldness, incorporating cutting-edge design trends
+    while maintaining accessibility and usability.
+    
+    CRITICAL REQUIREMENTS:
+    1. Visual Design Strategy with overall aesthetic direction (bold vs minimal, dark vs light, 
+    playful vs serious), mood board references, and emotional impact goals (trust, excitement, 
+    curiosity, professionalism).
+    2. Color Palette Design with primary brand color (representing personality), secondary colors 
+    (2-3 supporting colors), accent colors (for CTAs and highlights), semantic colors (success, 
+    warning, info), gradient definitions, and dark mode variations. Include exact hex codes, usage 
+    guidelines, and color psychology rationale.
+    3. Typography System with heading font (display/brand font with personality), body font (highly 
+    readable for long-form content), code font (for technical content), font pairings rationale, 
+    complete scale (h1-h6, body, small, caption), weight variations (light, regular, medium, bold), 
+    and responsive scaling rules.
+    4. Layout Architecture with grid system (12-column, breakpoints), section structure (Hero, About, 
+    Skills, Experience, Projects, Testimonials, Contact), spacing system (consistent margins/padding), 
+    content width constraints (readable line lengths), and mobile-first responsive breakpoints.
+    5. Component Design Specifications for navigation (desktop menu, mobile hamburger, scroll behavior), 
+    hero section (headline treatment, background effects, CTA placement), about section (photo placement, 
+    bio layout, personality elements), skills visualization (interactive graphs, proficiency indicators, 
+    category grouping), experience timeline (visual timeline, company logos, achievement highlights), 
+    project cards (image treatment, hover effects, case study links), and contact section (form design, 
+    social links, availability indicator).
+    6. Animation and Interaction Patterns with scroll-triggered animations (fade, slide, scale patterns), 
+    hover effects (card lifts, button transforms, link underlines), page transitions (smooth navigation), 
+    micro-interactions (button clicks, form validation, loading states), parallax effects (depth layers), 
+    and performance budgets (animation frame rates, transition durations).
+    7. Modern Design Trends Integration including glassmorphism (frosted glass effects with backdrop blur), 
+    neumorphism (soft shadows for depth), 3D elements (CSS 3D transforms, perspective effects), kinetic 
+    typography (animated text reveals), gradient meshes (multi-color gradients), particle effects (background 
+    animations), scroll-linked animations (progress indicators, reveal animations), and dark mode (complete 
+    dark theme with proper contrast ratios).
+    8. Accessibility Considerations with WCAG 2.1 AA compliance, color contrast ratios (4.5:1 minimum for text), 
+    keyboard navigation support, screen reader optimization, reduced motion preferences, and focus indicators.
+    9. Technical Showcase Elements including live code snippets (syntax highlighted), interactive demos 
+    (embedded projects), architecture diagrams (system designs), performance metrics (visual data), 
+    GitHub integration (live contribution graph), and technology badges (skill proficiency).
+    10. Conversion Optimization with clear CTAs (hire me, view projects, contact), social proof placement 
+    (testimonials, certifications), trust indicators (years experience, company logos), contact friction 
+    reduction (simple forms, multiple channels), and urgency elements (availability status, response time).
+    
+    DELIVERABLES: Complete design specification document with visual design philosophy, color palette with 
+    hex codes and usage rules, typography system with font choices and scale, detailed layout wireframes 
+    for each section, component specifications with measurements, animation timing functions and patterns, 
+    accessibility checklist, responsive design breakpoints, and Figma/Adobe XD mockups or detailed descriptions.
+  expected_output: >
+    A comprehensive DESIGN_SPECIFICATION.md file including:
+    - Executive summary of design philosophy and aesthetic direction
+    - Complete color palette with hex codes, gradients, and semantic meanings
+    - Typography system with font families, scales, weights, and usage guidelines
+    - Section-by-section layout specifications with wireframe descriptions
+    - Detailed component specifications (dimensions, spacing, states, interactions)
+    - Animation library (scroll animations, hover effects, transitions, micro-interactions)
+    - Design system documentation (buttons, cards, forms, navigation patterns)
+    - Accessibility compliance checklist and implementation notes
+    - Responsive design strategy with breakpoint specifications
+    - Visual examples, mood board references, and inspiration sources
+    - Technical constraints and browser support requirements
+    - Design rationale explaining key decisions and their impact on user experience
+  agent: portfolio_designer
+  output_file: 'output/docs/DESIGN_SPECIFICATION.md'
+  context: []
+
+architecture_planning_task:
+  description: >
+    Design the complete technical architecture for a production-ready Nuxt.js portfolio application.
+    The architecture must be scalable, maintainable, performant, and demonstrate best practices that
+    would impress technical reviewers. This is not just a simple website - it's a showcase of technical
+    sophistication that should itself demonstrate the developer's architectural thinking.
+    
+    CRITICAL REQUIREMENTS:
+    1. Nuxt.js 3 Project Structure with organized directory layout (components, composables, pages, 
+    layouts, assets, public, server), naming conventions, module organization (feature-based vs 
+    type-based), and file structure rationale. Include component hierarchy, shared utilities location, 
+    and configuration file organization.
+    2. Component Architecture with atomic design methodology (atoms, molecules, organisms, templates), 
+    component responsibility matrix (what each component does), prop interfaces with TypeScript types, 
+    event communication patterns, state management approach (when to use Pinia vs composables vs provide/inject), 
+    and component reusability strategy.
+    3. State Management Strategy including global state requirements (theme, user preferences, contact form), 
+    local state patterns (component-specific state), composables design (useScrollAnimation, useTheme, 
+    useContactForm), Pinia store structure (if needed for complex state), and state persistence strategy 
+    (localStorage, cookies).
+    4. Rendering Strategy with SSG vs SSR analysis (which pages need what), static generation for main pages 
+    (home, about, projects), dynamic routes for blog/projects if applicable, hybrid rendering approach, 
+    pre-rendering optimization, and caching strategy.
+    5. Animation Architecture with library selection (GSAP, Framer Motion, Motion One, or native CSS), 
+    animation hooks and lifecycle, performance optimization (GPU acceleration, will-change), scroll-triggered 
+    animation system (Intersection Observer implementation), timeline management for complex sequences, 
+    and reduced motion handling.
+    6. Performance Optimization Strategy including code splitting approach (route-based, component-based), 
+    lazy loading patterns (images, components, routes), asset optimization (image formats, compression), 
+    font loading strategy (preload, swap behavior), CSS optimization (Tailwind purging, critical CSS), 
+    JavaScript bundle analysis, and performance budgets (LCP < 2.5s, FID < 100ms, CLS < 0.1).
+    7. SEO and Meta Management with nuxt-seo-kit or @nuxtjs/seo integration, dynamic meta tags per page, 
+    Open Graph tags for social sharing, Twitter Card implementation, JSON-LD structured data (Person, 
+    WebSite schemas), canonical URLs, sitemap generation, robots.txt configuration, and schema markup 
+    for projects/experience.
+    8. Form Handling and API Integration with contact form architecture (client validation, server validation), 
+    email service integration (Resend, SendGrid, or Nodemailer), rate limiting for form submissions, 
+    spam prevention (honeypot, reCAPTCHA), error handling and user feedback, and success/failure state 
+    management.
+    9. Content Management Strategy with markdown-based content (for projects/blog if applicable), frontmatter 
+    metadata, content parsing with @nuxt/content (if using), static JSON for simple data, content validation, 
+    and easy update workflow.
+    10. Styling Architecture with Tailwind CSS configuration (custom colors, fonts, spacing), design tokens 
+    organization, component styling patterns (utility-first vs component classes), dark mode implementation 
+    (class-based with persistence), responsive design utilities, custom Tailwind plugins if needed, and 
+    CSS-in-JS considerations.
+    11. Type Safety with TypeScript configuration (strict mode), interface definitions for all data structures, 
+    component prop types, API response types, composable return types, and type-safe routing.
+    12. Testing Strategy with unit testing approach (Vitest), component testing (Vue Test Utils), E2E testing 
+    (Playwright or Cypress), accessibility testing (axe-core), visual regression testing considerations, and 
+    CI/CD test integration.
+    13. Development Workflow with hot module replacement optimization, environment variables management (.env 
+    files), development vs production configs, linting setup (ESLint, Prettier), Git hooks (Husky, lint-staged), 
+    and commit conventions.
+    14. Deployment Architecture with static hosting options (Netlify, Vercel, Cloudflare Pages), build optimization, 
+    environment-specific builds, CDN configuration, custom domain setup, SSL/HTTPS requirements, and deployment 
+    automation.
+    15. Monitoring and Analytics with analytics integration (Google Analytics, Plausible, Fathom), error tracking 
+    (Sentry), performance monitoring (Web Vitals), user behavior tracking (privacy-respecting), and dashboard setup.
+    
+    DELIVERABLES: Complete technical architecture document with project structure diagram, component hierarchy, 
+    rendering strategy, animation architecture, performance optimization plan, SEO implementation, deployment 
+    strategy, and technology stack justification with alternatives considered.
+  expected_output: >
+    A comprehensive TECHNICAL_ARCHITECTURE.md file including:
+    - System architecture overview with diagrams (use Mermaid for visualization)
+    - Complete project directory structure with file organization rationale
+    - Component architecture with atomic design breakdown and responsibility matrix
+    - State management patterns with code examples
+    - Rendering strategy analysis (SSG/SSR decisions with justification)
+    - Animation system architecture with library choices and implementation patterns
+    - Performance optimization checklist with specific techniques and tools
+    - SEO strategy with meta tag templates and structured data examples
+    - Form handling architecture with server route implementations
+    - Styling system with Tailwind configuration and design token structure
+    - TypeScript integration strategy with example interfaces
+    - Testing approach with framework choices and coverage goals
+    - Development workflow documentation
+    - Deployment pipeline with platform comparison and recommendation
+    - Monitoring setup with tool recommendations
+    - Technology stack matrix (chosen tech, alternatives, rationale)
+    - Migration path for future enhancements (blog, CMS, i18n)
+    - Code examples demonstrating architectural patterns
+    - Performance budget definitions and measurement approach
+  agent: frontend_architect
+  output_file: 'output/docs/TECHNICAL_ARCHITECTURE.md'
+  context:
+    - design_concept_task
+
+content_creation_task:
+  description: >
+    Create professional, compelling, and strategically crafted content for the portfolio website that
+    showcases 12 years of C# development expertise. Content must resonate with multiple audiences 
+    (recruiters, hiring managers, fellow developers) while maintaining authenticity and demonstrating 
+    both technical depth and business acumen.
+    
+    CRITICAL REQUIREMENTS:
+    1. Hero Section Content with attention-grabbing headline (10-15 words capturing unique value), 
+    compelling subheading (20-30 words expanding on expertise), brief tagline/elevator pitch, and 
+    primary CTA copy. Headline should be memorable, specific, and differentiated - avoid generic 
+    phrases like "Full Stack Developer" in favor of impact statements.
+    2. About Section Narrative with professional bio (3-4 paragraphs, 250-400 words) covering: career 
+    journey and evolution, technical expertise and specializations, problem-solving philosophy and approach, 
+    leadership and collaboration experience, continuous learning mindset, and personal interests that 
+    humanize. Write in first person with authentic voice. Include origin story (how you got into development), 
+    key career pivots, and what drives your passion for technology.
+    3. Skills and Expertise Organization with primary skills (C#, .NET Core, ASP.NET, Entity Framework), 
+    complementary skills (SQL, Azure, Docker, CI/CD), frontend technologies (for full-stack context), 
+    soft skills (architecture, mentoring, problem-solving), methodologies (Agile, DDD, TDD, microservices), 
+    and tools/platforms. Organize by proficiency level (expert, proficient, familiar) or by category 
+    (languages, frameworks, databases, cloud, DevOps, methodologies). Include context for each skill 
+    (years of experience, project count, or specific achievements).
+    4. Professional Experience Highlights with career timeline or key positions (company, title, duration), 
+    achievement-focused bullet points (not job descriptions), quantifiable impact statements (improved 
+    performance by X%, reduced costs by Y%, served Z million users), technical highlights (architectures 
+    designed, problems solved, technologies introduced), and leadership contributions (teams led, mentoring, 
+    technical direction). Focus on accomplishments over responsibilities - "Architected microservices 
+    platform reducing deployment time by 70%" not "Responsible for backend development."
+    5. Project Showcase Content (3-5 featured projects) with project names and taglines, problem statements 
+    (what challenge was being solved), solution approach (technical strategy and key decisions), technologies 
+    used (specific versions and why chosen), technical challenges overcome (interesting problems solved), 
+    measurable outcomes (performance metrics, user impact, business value), your specific role and contributions, 
+    project duration and team size, and visual descriptions (for screenshots/demos). Each project should tell 
+    a compelling story: problem → approach → solution → impact.
+    6. Technical Deep-Dive Content including architecture philosophy (your approach to system design), code 
+    quality principles (testing, maintainability, documentation), performance optimization strategies, security 
+    mindset, scalability considerations, and technical decision-making process. This demonstrates thought 
+    leadership beyond just listing technologies.
+    7. Testimonials and Recommendations (if available) with quotes from colleagues, managers, or clients, 
+    context for each testimonial (their role and project), permission confirmations, and strategic placement 
+    throughout site.
+    8. Call-to-Action Copy with multiple CTA variations for different sections (primary: hire/contact, 
+    secondary: view projects, tertiary: connect on LinkedIn), urgency and availability messaging ("Currently 
+    available for new opportunities" or "Open to consulting"), contact method preferences, and response 
+    time expectations. Make CTAs specific and action-oriented.
+    9. Contact Section Content with contact form field labels and placeholders, privacy assurance message, 
+    expected response time, alternative contact methods (email, LinkedIn, GitHub), time zone and availability, 
+    and contact success/error messages.
+    10. SEO-Optimized Content including meta title (50-60 characters), meta description (150-160 characters), 
+    keyword integration (natural placement of: C# developer, .NET engineer, senior software architect, etc.), 
+    heading hierarchy (H1-H6 with keywords), image alt texts, and schema markup content.
+    11. Microcopy and UI Text including navigation labels, button text, form validation messages, loading 
+    states, error messages, success confirmations, and tooltip text. All microcopy should be helpful, 
+    professional, and on-brand.
+    12. Social Proof Elements including years of experience statement, number of projects delivered, team 
+    size led, technologies mastered, certifications earned, open source contributions, conference talks or 
+    articles published, and industry recognitions.
+    
+    DELIVERABLES: Complete content package with all written content for every section, multiple headline/CTA 
+    variations for A/B testing consideration, SEO metadata, keyword strategy, tone of voice guidelines, and 
+    content formatting specifications (emphasis, links, lists).
+  expected_output: >
+    A comprehensive WEBSITE_CONTENT.md file including:
+    - Hero section with 3-5 headline variations and supporting copy
+    - Complete About section bio (multiple drafts if needed)
+    - Comprehensive skills inventory organized by category and proficiency
+    - Professional experience highlights with achievement-focused bullet points
+    - 3-5 detailed project case studies with full narratives
+    - Technical philosophy and approach statements
+    - Multiple CTA variations for different contexts
+    - Complete contact section copy with form content
+    - SEO metadata for all pages (titles, descriptions, keywords)
+    - Microcopy library for UI elements
+    - Social proof content and statistics
+    - Testimonial content (if available or placeholders)
+    - Content style guide (tone, voice, formatting conventions)
+    - Keyword strategy document for SEO
+    - Content placement map (which content goes where)
+    - Character/word count for each section (ensuring appropriate length)
+    - Alternative phrasings and variations for key messages
+    - Examples of similar successful portfolio content for reference
+  agent: content_strategist
+  output_file: 'output/docs/WEBSITE_CONTENT.md'
+  context:
+    - design_concept_task
+
+implementation_task:
+  description: >
+    Implement a complete, production-ready, visually striking Nuxt.js portfolio website based on the 
+    design specifications, technical architecture, and content strategy. This is the final deliverable 
+    that brings everything together into a polished, professional, impressive portfolio that showcases 
+    12 years of C# development expertise.
+    
+    CRITICAL INSTRUCTION FOR FILE GENERATION:
+    You MUST use the FileWriterTool to create ALL project files in the output/portfolio-website/ directory.
+    Create the complete Nuxt.js project structure with all necessary files. Each file should be written
+    separately using the tool. Do not just describe the files - actually create them with full, production-ready code.
+    
+    CRITICAL REQUIREMENTS:
+    1. Complete Nuxt.js 3 Application Setup with TypeScript configuration (strict mode), ESLint and Prettier 
+    configuration, Tailwind CSS integration with custom config, package.json with all dependencies, 
+    nuxt.config.ts with modules and settings, tsconfig.json, environment setup, and README with setup 
+    instructions.
+    2. Project Structure Implementation with organized directories (components/, composables/, pages/, layouts/, 
+    assets/, public/, server/), proper file naming conventions, component organization (atomic design), 
+    utility functions in composables/, and clear separation of concerns.
+    3. Layout and Page Implementation with default layout (header, footer, main content area), home page 
+    (hero, about, skills, experience, projects, contact), 404 error page, loading states, and page transitions. 
+    All layouts responsive with mobile-first approach.
+    4. Component Development with reusable atomic components (Button, Card, Badge, Input, Textarea, etc.), 
+    navigation components (Header, MobileMenu, ScrollIndicator), hero section component (with background effects, 
+    animated text), about section component (with photo, bio, personality elements), skills section component 
+    (interactive skill bars or graphs, category tabs), experience timeline component (visual timeline with 
+    animations), project cards component (hover effects, modal/detail views), contact form component (with 
+    validation, submission handling), footer component, and all components fully typed with TypeScript interfaces.
+    5. Animation Implementation with scroll-triggered animations using Intersection Observer, GSAP integration 
+    for complex timelines (hero animations, section reveals), hover effects on interactive elements, smooth 
+    page transitions, micro-interactions (button clicks, form feedback), parallax effects for depth, loading 
+    animations, and performance optimization (GPU acceleration, will-change).
+    6. Styling Implementation with Tailwind CSS utility classes (no inline styles), custom Tailwind configuration 
+    (brand colors, fonts, spacing, breakpoints), dark mode implementation (class-based with toggle and persistence), 
+    responsive design at all breakpoints (mobile, tablet, desktop, wide), glassmorphism effects where designed, 
+    gradient implementations, CSS animations for micro-interactions, and hover/focus states for all interactive 
+    elements.
+    7. State Management with composables for theme management (useTheme for dark mode), scroll management 
+    (useScrollAnimation for reveal effects), form state management (useContactForm), navigation state 
+    (useNavigation for mobile menu), and localStorage persistence for user preferences.
+    8. Form Functionality with client-side validation (Vuelidate or Zod), real-time field validation, 
+    error message display, spam prevention (honeypot field), server-side API route in server/api/, email 
+    service integration (Resend/SendGrid/Nodemailer), rate limiting, success/error state handling, loading 
+    states during submission, and accessibility (proper labels, aria-attributes).
+    9. SEO Implementation with @nuxtjs/seo or nuxt-seo-kit module, dynamic meta tags per page (useHead composable), 
+    Open Graph tags for social media (og:title, og:description, og:image), Twitter Card tags, JSON-LD structured 
+    data (Person schema, WebSite schema), sitemap generation, robots.txt, canonical URLs, and proper heading 
+    hierarchy (semantic HTML).
+    10. Performance Optimization with image optimization (lazy loading, modern formats like WebP/AVIF), 
+    code splitting (route-based automatic splitting), font optimization (preload, font-display: swap), 
+    CSS optimization (Tailwind JIT purging unused classes), bundle size analysis, critical CSS inlining, 
+    prefetching for route navigation, and achieving Lighthouse scores of 95+ (Performance, Accessibility, 
+    Best Practices, SEO).
+    11. Accessibility Implementation with WCAG 2.1 AA compliance, semantic HTML5 elements, proper heading 
+    hierarchy, alt text for all images, aria-labels where needed, keyboard navigation support (tab order, 
+    focus indicators), skip to content link, color contrast ratios (4.5:1 minimum), reduced motion support 
+    (@media prefers-reduced-motion), and screen reader testing.
+    12. Type Safety with TypeScript interfaces for all data structures (Project, Experience, Skill, ContactForm), 
+    component props typed with defineProps<Interface>(), composable return types, API response types, and no 
+    any types (strict TypeScript throughout).
+    13. Error Handling with try-catch blocks for async operations, graceful error states in UI, error boundaries 
+    for component failures, 404 page for invalid routes, network error handling in forms, and user-friendly error 
+    messages.
+    14. Content Integration with all content from content creation task integrated, proper content formatting 
+    (paragraphs, lists, emphasis), syntax highlighting for code snippets (if showing code examples), responsive 
+    images with proper sizing, and easy content update mechanism (JSON files or markdown).
+    15. Cross-Browser Compatibility with testing in Chrome, Firefox, Safari, Edge, proper CSS prefixes (handled 
+    by Tailwind/PostCSS), polyfills if needed, and modern JavaScript features with appropriate targets.
+    16. Mobile Optimization with touch-friendly interactions (proper touch targets 44x44px minimum), mobile 
+    navigation (hamburger menu), optimized images for mobile bandwidth, mobile-specific animations (reduced 
+    complexity), and viewport meta tag configuration.
+    17. Development Experience with hot module replacement working, clear console messages (no errors/warnings), 
+    organized Git history with meaningful commits, code formatting consistency (Prettier), ESLint passing with 
+    no errors, and development documentation.
+    18. Production Build with static site generation (nuxt generate), optimized bundle sizes, environment variable 
+    handling, proper build configuration, source maps for debugging (if needed), and deployment-ready assets.
+    19. Testing with component tests for critical components, E2E tests for user flows, accessibility tests (axe), 
+    lighthouse CI integration, and test coverage reports.
+    20. Documentation with comprehensive README.md (setup, development, build, deployment), code comments for 
+    complex logic, component prop documentation, API endpoint documentation, deployment instructions, and 
+    environment variable documentation.
+    
+    DELIVERABLES: Complete, production-ready Nuxt.js application with all source code, configuration files, 
+    assets, documentation, and deployment instructions. Application must be visually impressive, performant, 
+    accessible, SEO-optimized, and demonstrate best practices throughout.
+    
+    IMPORTANT: Use FileWriterTool to create each file individually in output/portfolio-website/ directory.
+    Create the full project structure with all files containing complete, working code.
+  expected_output: >
+    Complete Nuxt.js portfolio application created as actual files in output/portfolio-website/ directory
+    with the following structure:
+    
+    PROJECT ROOT FILES (write each separately):
+    - output/portfolio-website/package.json (with all dependencies and scripts)
+    - output/portfolio-website/nuxt.config.ts (complete configuration)
+    - output/portfolio-website/tsconfig.json (TypeScript configuration)
+    - output/portfolio-website/tailwind.config.ts (custom theme)
+    - output/portfolio-website/.eslintrc.js (linting rules)
+    - output/portfolio-website/.prettierrc (formatting rules)
+    - output/portfolio-website/.gitignore (properly configured)
+    - output/portfolio-website/README.md (comprehensive setup instructions)
+    - output/portfolio-website/.env.example (required environment variables)
+    
+    APP DIRECTORY:
+    - output/portfolio-website/app.vue (main app component)
+    
+    PAGES:
+    - output/portfolio-website/pages/index.vue (complete home page)
+    - output/portfolio-website/pages/[...slug].vue (404 error page)
+    
+    LAYOUTS:
+    - output/portfolio-website/layouts/default.vue (main layout with header/footer)
+    
+    COMPONENTS (ui/):
+    - output/portfolio-website/components/ui/Button.vue
+    - output/portfolio-website/components/ui/Card.vue
+    - output/portfolio-website/components/ui/Badge.vue
+    - output/portfolio-website/components/ui/Input.vue
+    - output/portfolio-website/components/ui/Textarea.vue
+    
+    COMPONENTS (layout/):
+    - output/portfolio-website/components/layout/Header.vue
+    - output/portfolio-website/components/layout/Footer.vue
+    - output/portfolio-website/components/layout/MobileMenu.vue
+    
+    COMPONENTS (sections/):
+    - output/portfolio-website/components/sections/Hero.vue
+    - output/portfolio-website/components/sections/About.vue
+    - output/portfolio-website/components/sections/Skills.vue
+    - output/portfolio-website/components/sections/Experience.vue
+    - output/portfolio-website/components/sections/Projects.vue
+    - output/portfolio-website/components/sections/Contact.vue
+    
+    COMPOSABLES:
+    - output/portfolio-website/composables/useTheme.ts
+    - output/portfolio-website/composables/useScrollAnimation.ts
+    - output/portfolio-website/composables/useContactForm.ts
+    - output/portfolio-website/composables/useNavigation.ts
+    
+    TYPES:
+    - output/portfolio-website/types/index.ts (all TypeScript interfaces)
+    
+    SERVER API:
+    - output/portfolio-website/server/api/contact.post.ts (contact form handler)
+    
+    ASSETS:
+    - output/portfolio-website/assets/css/main.css (global styles)
+    
+    PUBLIC:
+    - output/portfolio-website/public/robots.txt
+    - output/portfolio-website/public/favicon.ico (placeholder or actual)
+    
+    DOCUMENTATION:
+    - output/portfolio-website/docs/DEPLOYMENT.md
+    - output/portfolio-website/docs/DEVELOPMENT.md
+    
+    SUMMARY DOCUMENT:
+    - output/docs/IMPLEMENTATION_SUMMARY.md (overview of what was created, setup instructions,
+      deployment guide, and key features implemented)
+    
+    All code must be:
+    - Production-ready (no TODOs, complete implementations)
+    - Well-commented for complex logic
+    - Properly formatted (Prettier-ready)
+    - Type-safe (TypeScript throughout)
+    - Accessible (WCAG 2.1 AA compliant)
+    - Performant (optimized for Lighthouse 95+ scores)
+    - Visually polished (matches design specifications)
+    - Responsive (works beautifully on all devices)
+    - SEO-optimized (proper meta tags, structured data)
+    
+    The final deliverable should be ready to:
+    1. cd output/portfolio-website
+    2. npm install
+    3. npm run dev (for development)
+    4. npm run generate (for production build)
+    5. Deploy to Netlify, Vercel, or Cloudflare Pages
+  agent: nuxt_developer
+  context:
+    - design_concept_task
+    - architecture_planning_task
+    - content_creation_task
