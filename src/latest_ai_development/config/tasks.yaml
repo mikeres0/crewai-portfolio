@@ -336,7 +336,7 @@ implementation_task:
     with the following structure:
     
     PROJECT ROOT FILES (write each separately):
-    - output/portfolio-website/package.json (with all dependencies and scripts)
+    - output/portfolio-website/package.json (with all dependencies and scripts, make sure that EVERYTHING is the latest version that it possibly can be)
     - output/portfolio-website/nuxt.config.ts (complete configuration)
     - output/portfolio-website/tsconfig.json (TypeScript configuration)
     - output/portfolio-website/tailwind.config.ts (custom theme)

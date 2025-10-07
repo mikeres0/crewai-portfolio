@@ -1,4 +1,6 @@
 from dotenv import load_dotenv
+# Configure embeddings for memory (after the self.llm creation)
+from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 import os
 
 # Load environment variables FIRST
@@ -41,12 +43,19 @@ class PortfolioWebsiteCrew():
         super().__init__()
         # Initialize tools
         self.file_read_tool = FileReadTool()
-        if use_custom_writer:
-            self.file_writer_tool = write_file_utf8
-        else:
-            self.file_writer_tool = FileWriterTool()
-        self.directory_read_tool = DirectoryReadTool()
+        self.directory_read_tool = DirectoryReadTool()  # Add this line
         
+        # Always use custom UTF-8 writer
+        try:
+            from custom_tools import write_file_utf8
+            self.file_writer_tool = write_file_utf8
+            print("✅ Using custom UTF-8 file writer")
+        except ImportError as e:
+            print(f"⚠️  Custom tools import failed: {e}")
+            from crewai_tools import FileWriterTool
+            self.file_writer_tool = FileWriterTool()
+            print("⚠️  Falling back to standard FileWriterTool")
+
         # Create output directories if they don't exist
         os.makedirs('output/docs', exist_ok=True)
         os.makedirs('output/portfolio-website', exist_ok=True)
@@ -63,14 +72,31 @@ class PortfolioWebsiteCrew():
         base_url = os.getenv("AZURE_API_BASE") or os.getenv("AZURE_OPENAI_ENDPOINT")
         if base_url and base_url.endswith('/'):
             base_url = base_url[:-1]
+
+        # Configure Azure OpenAI - Let LiteLLM read from environment variables
+        deployment_name = os.getenv('AZURE_DEPLOYMENT_NAME')
             
+        # LLM instance - LiteLLM requires api_base, not base_url
         self.llm = LLM(
-            model=f"azure/{os.getenv('AZURE_DEPLOYMENT_NAME', 'gpt-4.1')}",
-            api_key=os.getenv("AZURE_API_KEY") or os.getenv("AZURE_OPENAI_API_KEY"),
-            base_url=base_url,
-            api_version=os.getenv("AZURE_API_VERSION", "2024-02-15-preview"),
+            model=f"azure/{deployment_name}",
+            api_key=os.getenv("AZURE_API_KEY"),
+            api_base=base_url,  # Changed from base_url to api_base
+            api_version=os.getenv("AZURE_API_VERSION"),
             temperature=0.7
         )
+
+        # Azure OpenAI embeddings configuration
+        self.embedder_config = {
+            "provider": "azure_openai",
+            "config": {
+                "model": os.getenv("AZURE_EMBEDDING_DEPLOYMENT_NAME", "text-embedding-3-small"),
+                "deployment_name": os.getenv("AZURE_EMBEDDING_DEPLOYMENT_NAME", "text-embedding-3-small"),
+                "api_key": os.getenv("AZURE_API_KEY"),
+                "api_base": base_url,
+                "api_type": "azure",
+                "api_version": os.getenv("AZURE_API_VERSION")
+            }
+        }
 
     @agent
     def portfolio_designer(self) -> Agent:
@@ -101,7 +127,7 @@ class PortfolioWebsiteCrew():
             llm=self.llm,
             verbose=True,
             allow_delegation=False,
-            max_iter=25,  # More iterations for complex implementation
+            max_iter=30,
             tools=[self.file_writer_tool, self.file_read_tool, self.directory_read_tool]
         )
 
@@ -148,10 +174,10 @@ class PortfolioWebsiteCrew():
             tasks=self.tasks,    # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
-            # Disable memory to avoid OpenAI embedding errors
-            memory=False,
-            # Disable planning - it's causing LLM configuration issues
-            planning=False,
+            allow_delegation=True,
+            #memory=True,
+            planning=True,
+            planning_llm=self.llm,
             # Output log file
             output_log_file='portfolio_crew_output.log'
         )
